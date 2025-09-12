@@ -16,7 +16,15 @@ public class Student extends Osoba {
         return brojIndeksa;
     }
 
+    public void setBrojIndeksa(String brojIndeksa) {
+        this.brojIndeksa = brojIndeksa;
+    }
+
     public double getProsek() {
         return prosek;
+    }
+
+    public void setProsek(double prosek) {
+        this.prosek = prosek;
     }
 }
