@@ -2,7 +2,7 @@ package fakultet;
 
 import osoba.Osoba;
 
-public class Student extends Osoba {
+public class Student extends Osoba implements Comparable<Student> {
     private String brojIndeksa;
     private double prosek;
 
@@ -31,5 +31,10 @@ public class Student extends Osoba {
     @Override
     public String toString() {
         return super.toString() + " - " + brojIndeksa + " [" + prosek + "]";
+    }
+
+    @Override
+    public int compareTo(Student s2) {
+        return Double.compare(this.prosek, s2.prosek);
     }
 }
