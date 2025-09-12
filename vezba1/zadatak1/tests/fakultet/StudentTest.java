@@ -44,14 +44,17 @@ public class StudentTest {
     @Test
     public void testSortiranjePoProsekuNeopadajuce() {
         List<Student> studenti = new ArrayList<>();
-        studenti.add(new Student("A", "M", "0101995123456", "I001", 8.5));
-        studenti.add(new Student("B", "M", "0101995123456", "I002", 9.2));
-        studenti.add(new Student("C", "M", "0101995123456", "I003", 7.8));
+        Student s1 = new Student("A", "M", "0101995123456", "I001", 8.5);
+        Student s2 = new Student("B", "M", "0101995123456", "I002", 9.2);
+        Student s3 = new Student("C", "M", "0101995123456", "I003", 7.8);
+        studenti.add(s1);
+        studenti.add(s2);
+        studenti.add(s3);
 
         Collections.sort(studenti);
 
-        assertEquals("C", studenti.get(0).getImePrezime());
-        assertEquals("A", studenti.get(1).getImePrezime());
-        assertEquals("B", studenti.get(2).getImePrezime());
+        assertEquals(s3, studenti.get(0));
+        assertEquals(s1, studenti.get(1));
+        assertEquals(s2, studenti.get(2));
     }
 }
