@@ -51,9 +51,9 @@
   Fakultet: Filoloski fakultet
   - Dekan: Sima Simic (58)
   --- Studenti:
-  ------ Petar Petrovic (25) –04-15/2025 [9.5]
-  ------ Ivan Ivanovic (23) –04-15/2023 [9.3]
-  ------ Marija Marijanovic (24) –04-15/2021 [9.4]
+  ------ Petar Petrovic (25) - 04-15/2025 [9.5]
+  ------ Ivan Ivanovic (23) - 04-15/2023 [9.3]
+  ------ Marija Marijanovic (24) - 04-15/2021 [9.4]
   ```
   
 * У главном програму, креирати факултет и неколико студената. 
