@@ -3,6 +3,9 @@ package fakultet;
 import org.junit.jupiter.api.BeforeEach;
 import osoba.Osoba;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FakultetTest {
@@ -30,27 +33,19 @@ public class FakultetTest {
         assertEquals(s, fakultet.getStudenti().getFirst());
     }
 
-    @Test
-    public void testIspisPostojecegStudenta() {
+    @ParameterizedTest
+    @CsvSource({
+        "04-15/2023,true,1",
+        "xx,false,2"
+    })
+    public void testIspisStudenta(String indeks, boolean ispisan, int brojStudenataNakonIspisa) {
         Student s1 = new Student("Petar Petrovic", "M", "0101995123456", "04-15/2025", 9.5);
         Student s2 = new Student("Ivan Ivanovic", "M", "0201998123456", "04-15/2023", 9.3);
         fakultet.upisiStudenta(s1);
         fakultet.upisiStudenta(s2);
 
-        assertTrue(fakultet.ispisiStudenta("04-15/2023"));
-        assertEquals(1, fakultet.getStudenti().size());
-        assertEquals("04-15/2025", fakultet.getStudenti().getFirst().getBrojIndeksa());
-    }
-
-    @Test
-    public void testIspisNepostojecegStudenta() {
-        Student s1 = new Student("Petar Petrovic", "M", "0101995123456", "04-15/2025", 9.5);
-        Student s2 = new Student("Ivan Ivanovic", "M", "0201998123456", "04-15/2023", 9.3);
-        fakultet.upisiStudenta(s1);
-        fakultet.upisiStudenta(s2);
-
-        assertFalse(fakultet.ispisiStudenta("xx"));
-        assertEquals(2, fakultet.getStudenti().size());
+        assertEquals(ispisan, fakultet.ispisiStudenta(indeks));
+        assertEquals(brojStudenataNakonIspisa, fakultet.getStudenti().size());
         assertEquals("04-15/2025", fakultet.getStudenti().getFirst().getBrojIndeksa());
     }
 
