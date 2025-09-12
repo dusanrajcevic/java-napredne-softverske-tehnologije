@@ -26,4 +26,8 @@ public class Fakultet {
     public List<Student> getStudenti() {
         return studenti;
     }
+
+    public void upisiStudenta(Student s) {
+        studenti.add(s);
+    }
 }
