@@ -30,4 +30,14 @@ public class Fakultet {
     public void upisiStudenta(Student s) {
         studenti.add(s);
     }
+
+    public boolean ispisiStudenta(String brojIndeksa) {
+        for (Student s: studenti) {
+            if (s.getBrojIndeksa().equals(brojIndeksa)) {
+                studenti.remove(s);
+                return true;
+            }
+        }
+        return false;
+    }
 }
