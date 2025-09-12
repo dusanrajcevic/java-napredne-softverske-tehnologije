@@ -27,4 +27,9 @@ public class Student extends Osoba {
     public void setProsek(double prosek) {
         this.prosek = prosek;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " - " + brojIndeksa + " [" + prosek + "]";
+    }
 }

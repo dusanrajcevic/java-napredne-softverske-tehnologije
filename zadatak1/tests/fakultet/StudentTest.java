@@ -28,4 +28,11 @@ public class StudentTest {
         s.setProsek(9.0);
         assertEquals(9.0, s.getProsek());
     }
+
+    @Test
+    public void testToStringFormat() {
+        Student s = new Student("Petar Petrovic", "M", "0101995123456", "I004-15/2025", 9.5);
+        String expected = "Petar Petrovic (" + s.getGodine() + ") - I004-15/2025 [9.5]";
+        assertEquals(expected, s.toString());
+    }
 }
