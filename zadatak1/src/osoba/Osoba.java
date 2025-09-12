@@ -33,4 +33,9 @@ public class Osoba {
         LocalDate datumRodjenja = LocalDate.of(godina, mesec, dan);
         return LocalDate.now().getYear() - datumRodjenja.getYear();
     }
+
+    @Override
+    public String toString() {
+        return imePrezime + " (" + getGodine() + ")";
+    }
 }

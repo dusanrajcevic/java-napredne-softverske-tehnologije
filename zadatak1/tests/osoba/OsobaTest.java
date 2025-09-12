@@ -19,4 +19,11 @@ public class OsobaTest {
         int expectedAge = java.time.LocalDate.now().getYear() - 1995;
         assertEquals(expectedAge, o.getGodine());
     }
+
+    @Test
+    public void testToStringFormat() {
+        Osoba o = new Osoba("Petar Petrovic", "M", "0101995123456");
+        String expected = "Petar Petrovic (" + o.getGodine() + ")";
+        assertEquals(expected, o.toString());
+    }
 }
