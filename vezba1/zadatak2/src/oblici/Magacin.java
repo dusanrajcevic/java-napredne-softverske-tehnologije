@@ -44,6 +44,17 @@ public class Magacin {
         Collections.sort(kontejneri);
     }
 
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Magacin, P = %s\n", povrsina));
+        for (Kontejner k : kontejneri) {
+            sb.append(k).append("\n");
+        }
+        return sb.toString();
+    }
+
     private double ukupnaPovrsinaKontejneraUmagacinu()
     {
         double ukupnaPovrsina = 0;

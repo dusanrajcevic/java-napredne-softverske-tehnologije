@@ -88,4 +88,17 @@ public class MagacinTest {
         assertEquals(b1, m.getKontejneri().get(2));
         assertEquals(k1, m.getKontejneri().get(3));
     }
+
+    @Test
+    public void testToStringFormat() {
+        Magacin m = new Magacin(900);
+        Kutija k = new Kutija(5, 10, 15);
+        Bure b = new Bure(5, 10);
+        m.dodajKontejner(k).dodajKontejner(b);
+
+        String expected = "Magacin, P = 900.0\n" +
+                          k + "\n" +
+                          b + "\n";
+        assertEquals(expected, m.toString());
+    }
 }
