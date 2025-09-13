@@ -1,104 +1,98 @@
 package oblici;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MagacinTest {
+    private Magacin magacin;
+    private Kutija kutija;
+    private Bure bure;
+
+    @BeforeEach
+    public void setUp() {
+        magacin = new Magacin(900);
+        kutija = new Kutija(5, 10, 15);
+        bure = new Bure(5, 10);
+    }
 
     @Test
     public void testKreiranjeMagacina() {
-        Magacin m = new Magacin(900);
-        assertEquals(900, m.getPovrsina());
-        assertTrue(m.getKontejneri().isEmpty());
+        assertEquals(900, magacin.getPovrsina());
+        assertTrue(magacin.getKontejneri().isEmpty());
     }
 
     @Test
     public void testDodavanjeKontejnera() {
-        Magacin m = new Magacin(900);
-        Kutija k = new Kutija(5, 10, 15);
-        Bure b = new Bure(5, 10);
-        m.dodajKontejner(k).dodajKontejner(b);
+        magacin.dodajKontejner(kutija).dodajKontejner(bure);
 
-        assertEquals(2, m.getKontejneri().size());
-        assertEquals(k, m.getKontejneri().get(0));
-        assertEquals(b, m.getKontejneri().get(1));
+        assertEquals(2, magacin.getKontejneri().size());
+        assertEquals(kutija, magacin.getKontejneri().get(0));
+        assertEquals(bure, magacin.getKontejneri().get(1));
     }
 
     @Test
     public void testDodavanjeKontejneraPrekoracenje() {
-        Magacin m = new Magacin(900);
-        Kutija k = new Kutija(5, 10, 15);
-        Bure b = new Bure(55, 55);
+        magacin.dodajKontejner(kutija).dodajKontejner(bure);
 
-        m.dodajKontejner(k);
-        assertThrows(IllegalStateException.class, () -> {
-            m.dodajKontejner(b);
-        });
+        assertThrows(IllegalStateException.class, () -> magacin.dodajKontejner(new Bure(55, 55)));
     }
 
     @Test
-    public void testUklanjanjeKontejnera() {
-        Magacin m = new Magacin(900);
-        Kutija k = new Kutija(5, 10, 15);
-        Bure b = new Bure(5, 10);
-        int id = k.getId();
+    public void testUklanjanjeKontejnera() throws IllegalStateException {
+        int id = kutija.getId();
 
-        m.dodajKontejner(b).dodajKontejner(k);
+        magacin.dodajKontejner(kutija).dodajKontejner(bure);
 
-        assertEquals(2, m.getKontejneri().size());
-        assertTrue(m.getKontejneri().contains(k));
+        assertEquals(2, magacin.getKontejneri().size());
+        assertTrue(magacin.getKontejneri().contains(kutija));
+        assertTrue(magacin.getKontejneri().contains(bure));
 
-        m.ukloniKontejner(id);
+        magacin.ukloniKontejner(id);
 
-        assertEquals(1, m.getKontejneri().size());
-        assertEquals(b, m.getKontejneri().getFirst());
+        assertEquals(1, magacin.getKontejneri().size());
+        assertFalse(magacin.getKontejneri().contains(kutija));
+        assertTrue(magacin.getKontejneri().contains(bure));
     }
 
     @Test
     public void testUklanjanjeKontejneraNepostojeciId() {
-        Magacin m = new Magacin(900);
-        Kutija k = new Kutija(5, 10, 15);
-        Bure b = new Bure(5, 10);
-        int id = k.getId() + b.getId();
+        int id = kutija.getId() + bure.getId();
 
-        m.dodajKontejner(b).dodajKontejner(k);
+        magacin.dodajKontejner(kutija).dodajKontejner(bure);
 
-        assertEquals(2, m.getKontejneri().size());
-        assertTrue(m.getKontejneri().contains(k));
+        assertEquals(2, magacin.getKontejneri().size());
+        assertTrue(magacin.getKontejneri().contains(kutija));
+        assertTrue(magacin.getKontejneri().contains(bure));
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            m.ukloniKontejner(id);
-        });
+        assertThrows(IllegalArgumentException.class, () -> magacin.ukloniKontejner(id));
+
+        assertTrue(magacin.getKontejneri().contains(kutija));
+        assertTrue(magacin.getKontejneri().contains(bure));
     }
 
     @Test
     public void testSortiranjeKontejneraPoPovrsiniNerastuce() {
-        Magacin m = new Magacin(900);
-        Kutija k1 = new Kutija(5, 10, 15);
-        Bure b1 = new Bure(5, 10);
-        Kutija k2 = new Kutija(2, 3, 4);
-        Bure b2 = new Bure(3, 7);
-        m.dodajKontejner(k1).dodajKontejner(b1).dodajKontejner(k2).dodajKontejner(b2);
+        Kutija kutija2 = new Kutija(2, 3, 4);
+        Bure bure2 = new Bure(3, 7);
+        magacin.dodajKontejner(kutija).dodajKontejner(bure).dodajKontejner(kutija2).dodajKontejner(bure2);
 
-        m.sortirajKontejnerePoPovrsiniNerastuce();
+        magacin.sortirajKontejnerePoPovrsiniNerastuce();
 
-        assertEquals(k2, m.getKontejneri().get(0));
-        assertEquals(b2, m.getKontejneri().get(1));
-        assertEquals(b1, m.getKontejneri().get(2));
-        assertEquals(k1, m.getKontejneri().get(3));
+        assertEquals(kutija2, magacin.getKontejneri().get(0));
+        assertEquals(bure2, magacin.getKontejneri().get(1));
+        assertEquals(bure, magacin.getKontejneri().get(2));
+        assertEquals(kutija, magacin.getKontejneri().get(3));
     }
 
     @Test
     public void testToStringFormat() {
-        Magacin m = new Magacin(900);
-        Kutija k = new Kutija(5, 10, 15);
-        Bure b = new Bure(5, 10);
-        m.dodajKontejner(k).dodajKontejner(b);
+        magacin.dodajKontejner(kutija).dodajKontejner(bure);
 
         String expected = "Magacin, P = 900.0\n" +
-                          k + "\n" +
-                          b + "\n";
-        assertEquals(expected, m.toString());
+                          kutija + "\n" +
+                          bure + "\n";
+        assertEquals(expected, magacin.toString());
     }
 }
