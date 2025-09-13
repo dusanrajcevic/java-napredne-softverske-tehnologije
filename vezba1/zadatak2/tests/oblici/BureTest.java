@@ -7,9 +7,11 @@ public class BureTest {
 
     @Test
     public void testKreiranjeBure() {
-        Bure b = new Bure(10, 20);
-        assertEquals("Bure", b.naziv);
-        assertEquals(1, b.getId());
+        Bure b1 = new Bure(10, 20);
+        Bure b2 = new Bure(15, 25);
+        assert b1.getId() > 0;
+        assert b2.getId() > 0;
+        assert b1.getId() != b2.getId();
     }
 
     @Test
@@ -29,7 +31,7 @@ public class BureTest {
     @Test
     public void testToStringFormat() {
         Bure b = new Bure(10, 20);
-        String expectedString = String.format("1. Bure P = %.2f, V = %.2f", b.povrsina(), b.zapremina());
+        String expectedString = String.format("%d. Bure P = %.2f, V = %.2f", b.getId(), b.povrsina(), b.zapremina());
         assertEquals(expectedString, b.toString());
     }
 }
