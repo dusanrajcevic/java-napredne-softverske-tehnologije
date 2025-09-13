@@ -14,4 +14,11 @@ public class KutijaTest {
         assertTrue(k2.getId() > 0);
         assertTrue(k1.getId() != k2.getId());
     }
+
+    @Test
+    public void testPovrsina() {
+        Kutija k = new Kutija(10, 20, 30);
+        double expectedPovrsina = 2 * (10 * 20 + 10 * 30 + 20 * 30);
+        assertTrue(Math.abs(expectedPovrsina - k.povrsina()) < 0.0001);
+    }
 }

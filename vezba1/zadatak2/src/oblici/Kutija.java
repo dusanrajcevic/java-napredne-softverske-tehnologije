@@ -14,7 +14,7 @@ public class Kutija extends Kontejner {
 
     @Override
     public double povrsina() {
-        return 0;
+        return 2 * (visina * sirina + visina * duzina + sirina * duzina);
     }
 
     @Override
