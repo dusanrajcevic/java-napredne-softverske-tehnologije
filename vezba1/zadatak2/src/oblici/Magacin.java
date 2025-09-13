@@ -19,4 +19,21 @@ public class Magacin {
     public List<Kontejner> getKontejneri() {
         return kontejneri;
     }
+
+    public Magacin dodajKontejner(Kontejner kontejner) throws IllegalStateException {
+        if (povrsina < ukupnaPovrsinaKontejneraUmagacinu() + kontejner.povrsina()) {
+            throw new IllegalStateException("Nedovoljno prostora u magacinu!");
+        }
+        kontejneri.add(kontejner);
+        return this;
+    }
+
+    private double ukupnaPovrsinaKontejneraUmagacinu()
+    {
+        double ukupnaPovrsina = 0;
+        for (Kontejner k : kontejneri) {
+            ukupnaPovrsina += k.povrsina();
+        }
+        return ukupnaPovrsina;
+    }
 }
