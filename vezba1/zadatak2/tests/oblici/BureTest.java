@@ -1,5 +1,6 @@
 package oblici;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,46 +11,47 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BureTest {
+    private Bure bure;
+
+    @BeforeEach
+    public void setUp() {
+        bure = new Bure(10, 20);
+    }
 
     @Test
     public void testKreiranjeBure() {
-        Bure b1 = new Bure(10, 20);
-        Bure b2 = new Bure(15, 25);
-        assertTrue(b1.getId() > 0);
-        assertTrue(b2.getId() > 0);
-        assertTrue(b1.getId() != b2.getId());
+        Bure bure2 = new Bure(15, 25);
+        assertTrue(bure.getId() > 0);
+        assertTrue(bure2.getId() > 0);
+        assertTrue(bure.getId() != bure2.getId());
     }
 
     @Test
     public void testPovrsina() {
-        Bure b = new Bure(10, 20);
         double expectedPovrsina = 2 * Math.pow(5, 2) * Math.PI + 2 * 5 * Math.PI * 20;
-        assertTrue(Math.abs(expectedPovrsina - b.povrsina()) < 0.0001);
+        assertTrue(Math.abs(expectedPovrsina - bure.povrsina()) < 0.0001);
     }
 
     @Test
     public void testZapremina() {
-        Bure b = new Bure(10, 20);
         double expectedZapremina = Math.pow(5, 2) * Math.PI * 20;
-        assertTrue(Math.abs(expectedZapremina - b.zapremina()) < 0.0001);
+        assertTrue(Math.abs(expectedZapremina - bure.zapremina()) < 0.0001);
     }
 
     @Test
     public void testToStringFormat() {
-        Bure b = new Bure(10, 20);
-        String expectedString = String.format("%d. Bure P = %.2f, V = %.2f", b.getId(), b.povrsina(), b.zapremina());
-        assertEquals(expectedString, b.toString());
+        String expectedString = String.format("%d. Bure P = %.2f, V = %.2f", bure.getId(), bure.povrsina(), bure.zapremina());
+        assertEquals(expectedString, bure.toString());
     }
 
     @Test
     public void testSortiranjeBure() {
-        Bure b1 = new Bure(10, 20);
-        Bure b2 = new Bure(15, 25);
-        Bure b3 = new Bure(5, 30);
-        List<Bure> bureList = new ArrayList<>(List.of(b1, b2, b3));
+        Bure bure2 = new Bure(15, 25);
+        Bure bure3 = new Bure(5, 30);
+        List<Bure> bureList = new ArrayList<>(List.of(bure, bure2, bure3));
         Collections.sort(bureList);
-        assertEquals(b3, bureList.get(0));
-        assertEquals(b1, bureList.get(1));
-        assertEquals(b2, bureList.get(2));
+        assertEquals(bure3, bureList.get(0));
+        assertEquals(bure, bureList.get(1));
+        assertEquals(bure2, bureList.get(2));
     }
 }
