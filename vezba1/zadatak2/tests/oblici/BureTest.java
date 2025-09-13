@@ -2,9 +2,9 @@ package oblici;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BureTest {
+
     @Test
     public void testKreiranjeBure() {
         Bure b = new Bure(10, 20);
@@ -19,5 +19,10 @@ public class BureTest {
         assert Math.abs(expectedPovrsina - b.povrsina()) < 0.0001;
     }
 
-
+    @Test
+    public void testZapremina() {
+        Bure b = new Bure(10, 20);
+        double expectedZapremina = Math.pow(5, 2) * Math.PI * 20;
+        assert Math.abs(expectedZapremina - b.zapremina()) < 0.0001;
+    }
 }

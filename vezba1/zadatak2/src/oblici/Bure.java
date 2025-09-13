@@ -17,7 +17,7 @@ public class Bure extends Kontejner {
 
     @Override
     public double zapremina() {
-        return -1;
+        return Math.pow(poluprecnik(), 2) * Math.PI * visina;
     }
 
     private double poluprecnik() {
