@@ -25,4 +25,11 @@ public class BureTest {
         double expectedZapremina = Math.pow(5, 2) * Math.PI * 20;
         assert Math.abs(expectedZapremina - b.zapremina()) < 0.0001;
     }
+
+    @Test
+    public void testToStringFormat() {
+        Bure b = new Bure(10, 20);
+        String expectedString = String.format("1. Bure P = %.2f, V = %.2f", b.povrsina(), b.zapremina());
+        assertEquals(expectedString, b.toString());
+    }
 }

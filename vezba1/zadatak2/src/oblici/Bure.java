@@ -20,6 +20,10 @@ public class Bure extends Kontejner {
         return Math.pow(poluprecnik(), 2) * Math.PI * visina;
     }
 
+    public String toString() {
+        return String.format("%d. %s P = %.2f, V = %.2f", id, naziv, povrsina(), zapremina());
+    }
+
     private double poluprecnik() {
         return precnik / 2;
     }
