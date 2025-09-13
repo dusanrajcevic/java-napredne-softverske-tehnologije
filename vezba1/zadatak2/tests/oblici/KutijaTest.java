@@ -2,6 +2,7 @@ package oblici;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class KutijaTest {
@@ -27,5 +28,12 @@ public class KutijaTest {
         Kutija k = new Kutija(10, 20, 30);
         double expectedZapremina = 10 * 20 * 30;
         assertTrue(Math.abs(expectedZapremina - k.zapremina()) < 0.0001);
+    }
+
+    @Test
+    public void testToStringFormat() {
+        Kutija k = new Kutija(10, 20, 30);
+        String expectedString = String.format("%d. Kutija P = %.2f, V = %.2f", k.getId(), k.povrsina(), k.zapremina());
+        assertEquals(expectedString, k.toString());
     }
 }

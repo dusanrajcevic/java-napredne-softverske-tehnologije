@@ -21,4 +21,9 @@ public class Kutija extends Kontejner {
     public double zapremina() {
         return visina * sirina * duzina;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d. %s P = %.2f, V = %.2f", id, naziv, povrsina(), zapremina());
+    }
 }
