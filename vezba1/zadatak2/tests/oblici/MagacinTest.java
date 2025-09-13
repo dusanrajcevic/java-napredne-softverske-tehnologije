@@ -36,4 +36,39 @@ public class MagacinTest {
             m.dodajKontejner(b);
         });
     }
+
+    @Test
+    public void testUklanjanjeKontejnera() {
+        Magacin m = new Magacin(900);
+        Kutija k = new Kutija(5, 10, 15);
+        Bure b = new Bure(5, 10);
+        int id = k.getId();
+
+        m.dodajKontejner(b).dodajKontejner(k);
+
+        assertEquals(2, m.getKontejneri().size());
+        assertTrue(m.getKontejneri().contains(k));
+
+        m.ukloniKontejner(id);
+
+        assertEquals(1, m.getKontejneri().size());
+        assertEquals(b, m.getKontejneri().getFirst());
+    }
+
+    @Test
+    public void testUklanjanjeKontejneraNepostojeciId() {
+        Magacin m = new Magacin(900);
+        Kutija k = new Kutija(5, 10, 15);
+        Bure b = new Bure(5, 10);
+        int id = k.getId() + b.getId();
+
+        m.dodajKontejner(b).dodajKontejner(k);
+
+        assertEquals(2, m.getKontejneri().size());
+        assertTrue(m.getKontejneri().contains(k));
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            m.ukloniKontejner(id);
+        });
+    }
 }

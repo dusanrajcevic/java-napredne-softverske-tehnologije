@@ -28,6 +28,16 @@ public class Magacin {
         return this;
     }
 
+    public void ukloniKontejner(int id) {
+        int i = getKontejner(id);
+
+        if (i == -1) {
+            throw new IllegalArgumentException("Nepostojeci kontejner!");
+        }
+
+        kontejneri.remove(i);
+    }
+
     private double ukupnaPovrsinaKontejneraUmagacinu()
     {
         double ukupnaPovrsina = 0;
@@ -35,5 +45,14 @@ public class Magacin {
             ukupnaPovrsina += k.povrsina();
         }
         return ukupnaPovrsina;
+    }
+
+    private int getKontejner(int id) {
+        for (int i = 0; i < kontejneri.size(); i++) {
+            if (kontejneri.get(i).getId() == id) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
