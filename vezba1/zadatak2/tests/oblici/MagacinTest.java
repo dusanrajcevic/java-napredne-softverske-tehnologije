@@ -71,4 +71,21 @@ public class MagacinTest {
             m.ukloniKontejner(id);
         });
     }
+
+    @Test
+    public void testSortiranjeKontejneraPoPovrsiniNerastuce() {
+        Magacin m = new Magacin(900);
+        Kutija k1 = new Kutija(5, 10, 15);
+        Bure b1 = new Bure(5, 10);
+        Kutija k2 = new Kutija(2, 3, 4);
+        Bure b2 = new Bure(3, 7);
+        m.dodajKontejner(k1).dodajKontejner(b1).dodajKontejner(k2).dodajKontejner(b2);
+
+        m.sortirajKontejnerePoPovrsiniNerastuce();
+
+        assertEquals(k2, m.getKontejneri().get(0));
+        assertEquals(b2, m.getKontejneri().get(1));
+        assertEquals(b1, m.getKontejneri().get(2));
+        assertEquals(k1, m.getKontejneri().get(3));
+    }
 }

@@ -1,6 +1,7 @@
 package oblici;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Magacin {
@@ -36,6 +37,11 @@ public class Magacin {
         }
 
         kontejneri.remove(i);
+    }
+
+    public void sortirajKontejnerePoPovrsiniNerastuce()
+    {
+        Collections.sort(kontejneri);
     }
 
     private double ukupnaPovrsinaKontejneraUmagacinu()
