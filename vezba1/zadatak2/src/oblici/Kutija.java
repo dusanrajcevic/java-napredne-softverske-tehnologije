@@ -19,6 +19,6 @@ public class Kutija extends Kontejner {
 
     @Override
     public double zapremina() {
-        return 0;
+        return visina * sirina * duzina;
     }
 }
