@@ -1,8 +1,8 @@
 package oblici;
 
 public class Bure extends Kontejner {
-    private double precnik;
-    private double visina;
+    private final double precnik;
+    private final double visina;
 
     public Bure(double precnik, double visina) {
         super("Bure");

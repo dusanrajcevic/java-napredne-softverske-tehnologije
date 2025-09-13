@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class Magacin {
-    private double povrsina;
-    private List<Kontejner> kontejneri;
+    private final double povrsina;
+    private final List<Kontejner> kontejneri;
 
     public Magacin(double povrsina) {
         this.povrsina = povrsina;

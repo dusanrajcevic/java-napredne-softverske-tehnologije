@@ -1,9 +1,9 @@
 package oblici;
 
 public class Kutija extends Kontejner {
-    private double visina;
-    private double sirina;
-    private double duzina;
+    private final double visina;
+    private final double sirina;
+    private final double duzina;
 
     public Kutija(double visina, double sirina, double duzina) {
         super("Kutija");
