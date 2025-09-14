@@ -42,4 +42,20 @@ public class TeretnoVoziloTest {
 
         assertThrows(IllegalArgumentException.class, () -> tv.istovariPrtljag(999));
     }
+
+    @Test
+    public void testToString() {
+        TeretnoVozilo tv = new TeretnoVozilo(3000, "Scania");
+        Prtljag p1 = new Prtljag("Torba", 20);
+        Prtljag p2 = new Prtljag("Kofer", 30);
+        Prtljag p3 = new Prtljag("Ranac", 10);
+        tv.dodajPrtljag(p1).dodajPrtljag(p2).dodajPrtljag(p3);
+        String expected = "Scania [3000]\n  "
+                + "Prtljag:\n    "
+                + p1 + "\n    "
+                + p2 + "\n    "
+                + p3 + "\n  "
+                + "Ukupno: 60.00";
+        assertEquals(expected, tv.toString());
+    }
 }

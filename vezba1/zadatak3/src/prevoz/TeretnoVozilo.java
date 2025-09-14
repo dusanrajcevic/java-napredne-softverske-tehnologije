@@ -40,6 +40,17 @@ public class TeretnoVozilo extends Vozilo {
         return prtljazi.remove(indeks);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString())
+                .append("\n  Prtljag:\n");
+        for (Prtljag p : prtljazi) {
+            sb.append("    ").append(p).append("\n");
+        }
+        sb.append("  Ukupno: ").append(String.format("%.2f", ukupnaTezinaPrtljaga()));
+        return sb.toString();
+    }
+
     private int getIndeksPrtljaga(int id) {
         for (int i = 0; i < prtljazi.size(); i++) {
             if (prtljazi.get(i).getId() == id) {
