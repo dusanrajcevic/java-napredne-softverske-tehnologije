@@ -16,4 +16,9 @@ public class Vozilo {
     public String getMarka() {
         return marka;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s [%.0f]", marka, maxTezina);
+    }
 }

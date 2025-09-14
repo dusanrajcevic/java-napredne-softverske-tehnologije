@@ -12,4 +12,10 @@ public class VoziloTest {
         assertEquals(1000, v.getMaxTezina());
         assertEquals("Toyota", v.getMarka());
     }
+
+    @Test
+    public void testToString() {
+        Vozilo v = new Vozilo(1500, "Ford");
+        assertEquals("Ford [1500]", v.toString());
+    }
 }
