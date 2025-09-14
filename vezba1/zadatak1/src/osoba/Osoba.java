@@ -26,16 +26,28 @@ public class Osoba {
     }
 
     public int getGodine() {
-        int godina = Integer.parseInt(jmbg.substring(4, 7));
-        godina += (godina < 100) ? 2000 : 1000;
-        int mesec = Integer.parseInt(jmbg.substring(2, 4));
-        int dan = Integer.parseInt(jmbg.substring(0, 2));
-        LocalDate datumRodjenja = LocalDate.of(godina, mesec, dan);
-        return LocalDate.now().getYear() - datumRodjenja.getYear();
+        return LocalDate.now().getYear() - datumRodjenja().getYear();
     }
 
     @Override
     public String toString() {
         return imePrezime + " (" + getGodine() + ")";
+    }
+
+    private int danRodjenja() {
+        return Integer.parseInt(jmbg.substring(0, 2));
+    }
+
+    private int mesecRodjenja() {
+        return Integer.parseInt(jmbg.substring(2, 4));
+    }
+
+    private int godinaRodjenja() {
+        int godina = Integer.parseInt(jmbg.substring(4, 7));
+        return godina + ((godina < 100) ? 2000 : 1000);
+    }
+
+    private LocalDate datumRodjenja() {
+        return LocalDate.of(godinaRodjenja(), mesecRodjenja(), danRodjenja());
     }
 }
