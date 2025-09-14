@@ -43,4 +43,11 @@ class PrtljagTest {
         assertEquals(p2, prtljazi.get(0));
         assertEquals(p3, prtljazi.get(2));
     }
+
+    @Test
+    void testToStringFormat() {
+        Prtljag p = new Prtljag("torba", 50);
+        String expected = p.getId() + ". torba [50.00]";
+        assertEquals(expected, p.toString());
+    }
 }

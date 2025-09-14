@@ -28,4 +28,9 @@ public class Prtljag implements Comparable<Prtljag> {
     public int compareTo(Prtljag other) {
         return Double.compare(this.tezina, other.tezina);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d. %s [%.2f]", id, naziv, tezina);
+    }
 }
