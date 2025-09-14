@@ -26,4 +26,20 @@ public class TeretnoVoziloTest {
         assertEquals(200, tv.ukupnaTezinaPrtljaga());
         assertThrows(IllegalArgumentException.class, () -> tv.dodajPrtljag(p3));
     }
+
+    @Test
+    public void testIstovarPrtljaga() {
+        TeretnoVozilo tv = new TeretnoVozilo(200, "Volvo");
+        Prtljag p1 = new Prtljag("Dzak", 50);
+        Prtljag p2 = new Prtljag("Torba", 150);
+
+        tv.dodajPrtljag(p1).dodajPrtljag(p2);
+        assertEquals(200, tv.ukupnaTezinaPrtljaga());
+
+        Prtljag istovareni = tv.istovariPrtljag(p1.getId());
+        assertEquals(p1, istovareni);
+        assertEquals(150, tv.ukupnaTezinaPrtljaga());
+
+        assertThrows(IllegalArgumentException.class, () -> tv.istovariPrtljag(999));
+    }
 }

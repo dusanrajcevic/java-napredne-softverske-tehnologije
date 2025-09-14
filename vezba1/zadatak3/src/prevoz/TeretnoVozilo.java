@@ -29,4 +29,23 @@ public class TeretnoVozilo extends Vozilo {
         }
         return ukupnaTezina;
     }
+
+    public Prtljag istovariPrtljag(int id) {
+        int indeks = getIndeksPrtljaga(id);
+
+        if (indeks == -1) {
+            throw new IllegalArgumentException("Nepostojeci prtljag");
+        }
+
+        return prtljazi.remove(indeks);
+    }
+
+    private int getIndeksPrtljaga(int id) {
+        for (int i = 0; i < prtljazi.size(); i++) {
+            if (prtljazi.get(i).getId() == id) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
