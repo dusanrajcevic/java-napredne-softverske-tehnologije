@@ -13,7 +13,7 @@ public class TeretnoVozilo extends Vozilo {
         prtljazi = new ArrayList<>();
     }
 
-    public TeretnoVozilo dodajPrtljag(Prtljag prtljag) {
+    public TeretnoVozilo dodajPrtljag(Prtljag prtljag) throws IllegalArgumentException {
         if (ukupnaTezinaPrtljaga() + prtljag.getTezina() > getMaxTezina()) {
             throw new IllegalArgumentException("Prtljag prelazi maksimalnu tezinu");
         }
@@ -30,7 +30,7 @@ public class TeretnoVozilo extends Vozilo {
         return ukupnaTezina;
     }
 
-    public Prtljag istovariPrtljag(int id) {
+    public Prtljag istovariPrtljag(int id) throws IllegalArgumentException {
         int indeks = getIndeksPrtljaga(id);
 
         if (indeks == -1) {
