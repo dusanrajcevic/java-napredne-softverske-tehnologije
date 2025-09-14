@@ -1,6 +1,6 @@
 package tovar;
 
-public class Prtljag {
+public class Prtljag implements Comparable<Prtljag> {
     private static int ID = 1;
     private final int id;
     private final String naziv;
@@ -22,5 +22,10 @@ public class Prtljag {
 
     public double getTezina() {
         return tezina;
+    }
+
+    @Override
+    public int compareTo(Prtljag other) {
+        return Double.compare(this.tezina, other.tezina);
     }
 }
