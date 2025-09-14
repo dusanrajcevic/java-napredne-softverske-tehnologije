@@ -56,12 +56,14 @@ public class FakultetTest {
         fakultet.upisiStudenta(s1).upisiStudenta(s2).upisiStudenta(s3);
 
         String output = fakultet.toString();
-        String expected = "Fakultet: Filoloski fakultet\n" +
-                "- Dekan: Sima Simic (829)\n" +
-                "--- Studenti:\n" +
-                "------ Petar Petrovic (30) - 04-15/2025 [9.5]\n" +
-                "------ Ivan Ivanovic (27) - 04-15/2023 [9.3]\n" +
-                "------ Marija Marijanovic (28) - 04-15/2021 [9.4]\n";
+        String expected = """
+                Fakultet: Filoloski fakultet
+                - Dekan: Sima Simic (829)
+                --- Studenti:
+                ------ Petar Petrovic (30) - 04-15/2025 [9.5]
+                ------ Ivan Ivanovic (27) - 04-15/2023 [9.3]
+                ------ Marija Marijanovic (28) - 04-15/2021 [9.4]
+                """;
 
         assertEquals(expected, output);
     }
