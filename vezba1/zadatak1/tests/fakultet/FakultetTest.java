@@ -41,8 +41,7 @@ public class FakultetTest {
     public void testIspisStudenta(String indeks, boolean ispisan, int brojStudenataNakonIspisa) {
         Student s1 = new Student("Petar Petrovic", "M", "0101995123456", "04-15/2025", 9.5);
         Student s2 = new Student("Ivan Ivanovic", "M", "0201998123456", "04-15/2023", 9.3);
-        fakultet.upisiStudenta(s1);
-        fakultet.upisiStudenta(s2);
+        fakultet.upisiStudenta(s1).upisiStudenta(s2);
 
         assertEquals(ispisan, fakultet.ispisiStudenta(indeks));
         assertEquals(brojStudenataNakonIspisa, fakultet.getStudenti().size());
@@ -54,9 +53,7 @@ public class FakultetTest {
         Student s1 = new Student("Petar Petrovic", "M", "0101995123456", "04-15/2025", 9.5);
         Student s2 = new Student("Ivan Ivanovic", "M", "0201998123456", "04-15/2023", 9.3);
         Student s3 = new Student("Marija Marijanovic", "Z", "0301997123456", "04-15/2021", 9.4);
-        fakultet.upisiStudenta(s1);
-        fakultet.upisiStudenta(s2);
-        fakultet.upisiStudenta(s3);
+        fakultet.upisiStudenta(s1).upisiStudenta(s2).upisiStudenta(s3);
 
         String output = fakultet.toString();
         String expected = "Fakultet: Filoloski fakultet\n" +

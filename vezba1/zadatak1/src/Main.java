@@ -13,10 +13,7 @@ public class Main {
         fakultet.Student s3 = new fakultet.Student("Marko Markovic", "M", "0303995123456", "I002-15/2025", 7.2);
         fakultet.Student s4 = new fakultet.Student("Jelena Jelic", "Z", "0404995123456", "I003-15/2025", 9.0);
 
-        f.upisiStudenta(s1);
-        f.upisiStudenta(s2);
-        f.upisiStudenta(s3);
-        f.upisiStudenta(s4);
+        f.upisiStudenta(s1).upisiStudenta(s2).upisiStudenta(s3).upisiStudenta(s4);
 
         System.out.println("Fakultet (pre sortiranja):");
         System.out.println(f);

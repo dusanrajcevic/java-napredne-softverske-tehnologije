@@ -27,8 +27,9 @@ public class Fakultet {
         return studenti;
     }
 
-    public void upisiStudenta(Student s) {
+    public Fakultet upisiStudenta(Student s) {
         studenti.add(s);
+        return this;
     }
 
     public boolean ispisiStudenta(String brojIndeksa) {
