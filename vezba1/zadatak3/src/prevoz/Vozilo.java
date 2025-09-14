@@ -1,8 +1,8 @@
 package prevoz;
 
 public class Vozilo {
-    private double maxTezina;
-    private String marka;
+    private final double maxTezina;
+    private final String marka;
 
     public Vozilo(double maxTezina, String marka) {
         this.maxTezina = maxTezina;
