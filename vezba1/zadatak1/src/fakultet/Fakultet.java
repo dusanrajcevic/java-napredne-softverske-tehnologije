@@ -38,12 +38,12 @@ public class Fakultet {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Fakultet: ").append(naziv).append("\n");
-        sb.append("- Dekan: ").append(dekan).append("\n");
-        sb.append("--- Studenti:\n");
-        for (Student s: studenti) {
-            sb.append("------ ").append(s).append("\n");
-        }
+        sb.append("Fakultet: ").append(naziv).append("\n")
+                .append("- Dekan: ").append(dekan).append("\n")
+                .append("--- Studenti:\n");
+        studenti.forEach(
+             s -> sb.append("------ ").append(s).append("\n")
+        );
         return sb.toString();
     }
 }
