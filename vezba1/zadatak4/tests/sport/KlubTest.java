@@ -21,5 +21,15 @@ public class KlubTest {
         assertEquals(1, klub.getIgraci().size());
         assertEquals(igrac, klub.getIgraci().getFirst());
     }
+
+    @Test
+    public void testUkloniIgraca() {
+        Klub klub = new Klub("Test", "fudbal");
+        Igrac igrac = new Igrac("A", 20);
+        klub.dodajIgraca(igrac);
+        klub.ukloniIgraca(igrac.getId());
+        assertTrue(klub.getIgraci().isEmpty());
+        assertThrows(IllegalArgumentException.class, () -> klub.ukloniIgraca(-1));
+    }
 }
 
