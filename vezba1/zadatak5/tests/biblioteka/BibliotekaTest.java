@@ -61,4 +61,14 @@ public class BibliotekaTest {
         biblioteka.dodajKnjigu(knjiga1).dodajKnjigu(knjiga2);
         assertThrows(IllegalArgumentException.class, () -> biblioteka.ukloniKnjigu(9999));
     }
+
+    @Test
+    public void testUpisClanova() {
+        assertDoesNotThrow(() -> {
+            Biblioteka biblioteka = new Biblioteka("Narodna biblioteka");
+            Clan clan1 = new Clan("Pera Peric", "01234567");
+            Clan clan2 = new Clan("Pera Peric 2", "012345678");
+            biblioteka.upisiClana(clan1).upisiClana(clan2);
+        });
+    }
 }

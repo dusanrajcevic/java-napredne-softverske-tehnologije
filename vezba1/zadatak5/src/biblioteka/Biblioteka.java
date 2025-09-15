@@ -38,4 +38,9 @@ public class Biblioteka {
                 .findFirst()
                 .orElse(-1);
     }
+
+    public Biblioteka upisiClana(Clan clan) {
+        this.clanovi.add(clan);
+        return this;
+    }
 }
