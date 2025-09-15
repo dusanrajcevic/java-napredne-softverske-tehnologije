@@ -23,5 +23,10 @@ public class Igrac {
     public int getGodine() {
         return godine;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d. %s (%d)", id, imePrezime, godine);
+    }
 }
 

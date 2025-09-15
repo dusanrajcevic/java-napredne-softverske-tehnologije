@@ -30,5 +30,11 @@ public class IgracTest {
         assertTrue(igrac2.getId() > 0);
         assertTrue(igrac.getId() != igrac2.getId());
     }
+
+    @Test
+    public void testToStringFormat() {
+        String expected = igrac.getId() + ". Ivan Ivanovic (25)";
+        assertEquals(expected, igrac.toString());
+    }
 }
 
