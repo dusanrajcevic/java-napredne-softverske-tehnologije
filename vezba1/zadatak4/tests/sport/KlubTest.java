@@ -37,8 +37,7 @@ public class KlubTest {
         Klub klub = new Klub("Test", "fudbal");
         Igrac i1 = new Igrac("A", 30);
         Igrac i2 = new Igrac("B", 20);
-        klub.dodajIgraca(i1);
-        klub.dodajIgraca(i2);
+        klub.dodajIgraca(i1).dodajIgraca(i2);
         klub.sortirajPoGodinamaNeopadajuce();
         assertEquals(i2, klub.getIgraci().get(0));
         assertEquals(i1, klub.getIgraci().get(1));

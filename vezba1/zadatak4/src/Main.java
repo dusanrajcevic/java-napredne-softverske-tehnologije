@@ -9,9 +9,7 @@ public class Main {
         Fudbaler f2 = new Fudbaler("Petar Petrovic", 22, "napadac");
         Kosarkas k1 = new Kosarkas("Jovan Jovanovic", 27, 198);
 
-        klub.dodajIgraca(f1);
-        klub.dodajIgraca(f2);
-        klub.dodajIgraca(k1);
+        klub.dodajIgraca(f1).dodajIgraca(f2).dodajIgraca(k1);
 
         System.out.println("--- Klub bez sortiranja ---");
         System.out.print(klub);
