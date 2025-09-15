@@ -26,5 +26,10 @@ public class Klub {
     public List<Igrac> getIgraci() {
         return new ArrayList<>(igraci);
     }
+
+    public Klub dodajIgraca(Igrac igrac) {
+        igraci.add(igrac);
+        return this;
+    }
 }
 
