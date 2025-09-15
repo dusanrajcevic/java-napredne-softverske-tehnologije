@@ -13,4 +13,9 @@ public class Fudbaler extends Igrac {
     public String getPozicija() {
         return pozicija;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " - " + pozicija;
+    }
 }
