@@ -1,21 +1,26 @@
 package biblioteka;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ClanTest {
+    private Clan clan;
+
+    @BeforeEach
+    public void setUp() {
+        clan = new Clan("Pera Peric", "01234567");
+    }
 
     @Test
     public void testKreiranjeClana() {
-        Clan c = new Clan("Pera Peric", "01234567");
-        assertEquals("Pera Peric", c.getImePrezime());
-        assertEquals("01234567", c.getBrojClanskeKarte());
+        assertEquals("Pera Peric", clan.getImePrezime());
+        assertEquals("01234567", clan.getBrojClanskeKarte());
     }
 
     @Test
     public void testToStringFormat() {
-        Clan c = new Clan("Pera Peric", "01234567");
-        assertEquals("Pera Peric - 01234567", c.toString());
+        assertEquals("Pera Peric - 01234567", clan.toString());
     }
 }
