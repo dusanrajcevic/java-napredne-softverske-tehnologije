@@ -22,4 +22,20 @@ public class Biblioteka {
         return this;
     }
 
+    public Knjiga ukloniKnjigu(int id) {
+        int i = knjigaIndex(id);
+
+        if (i == -1) {
+            throw new IllegalArgumentException("Nepostojeca knjiga");
+        }
+
+        return knjige.remove(i);
+    }
+
+    public int knjigaIndex(int id) {
+        return IntStream.range(0, knjige.size())
+                .filter(i -> knjige.get(i).getId() == id)
+                .findFirst()
+                .orElse(-1);
+    }
 }
