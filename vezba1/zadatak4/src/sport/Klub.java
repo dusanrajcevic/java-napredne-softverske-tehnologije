@@ -1,6 +1,8 @@
 package sport;
 
 import osobe.Igrac;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.IntStream;
@@ -41,6 +43,10 @@ public class Klub {
         }
 
         igraci.remove(i);
+    }
+
+    public void sortirajPoGodinamaNeopadajuce() {
+        igraci.sort(Comparator.comparingInt(Igrac::getGodine));
     }
 
     private int igracIndex(int id) {
