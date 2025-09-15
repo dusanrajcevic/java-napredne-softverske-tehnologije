@@ -3,14 +3,14 @@ package sport;
 import osobe.Igrac;
 
 public class Fudbaler extends Igrac {
-    private final String pozicija;
+    private final Pozicija pozicija;
 
-    public Fudbaler(String imePrezime, int godine, String pozicija) {
+    public Fudbaler(String imePrezime, int godine, Pozicija pozicija) {
         super(imePrezime, godine);
         this.pozicija = pozicija;
     }
 
-    public String getPozicija() {
+    public Pozicija getPozicija() {
         return pozicija;
     }
 
