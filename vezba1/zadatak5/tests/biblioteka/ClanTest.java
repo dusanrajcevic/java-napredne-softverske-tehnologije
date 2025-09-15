@@ -12,4 +12,10 @@ public class ClanTest {
         assertEquals("Pera Peric", c.getImePrezime());
         assertEquals("01234567", c.getBrojClanskeKarte());
     }
+
+    @Test
+    public void testToStringFormat() {
+        Clan c = new Clan("Pera Peric", "01234567");
+        assertEquals("Pera Peric - 01234567", c.toString());
+    }
 }

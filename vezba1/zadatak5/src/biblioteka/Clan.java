@@ -16,4 +16,9 @@ public class Clan {
     public String getBrojClanskeKarte() {
         return brojClanskeKarte;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s", imePrezime, brojClanskeKarte);
+    }
 }
