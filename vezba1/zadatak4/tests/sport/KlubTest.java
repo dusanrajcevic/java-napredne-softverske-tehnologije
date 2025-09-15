@@ -53,4 +53,3 @@ public class KlubTest {
         assertEquals(expected, klub.toString());
     }
 }
-

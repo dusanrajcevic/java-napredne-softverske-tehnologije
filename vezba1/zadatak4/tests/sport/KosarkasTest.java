@@ -19,4 +19,3 @@ public class KosarkasTest {
         assertEquals(expected, k.toString());
     }
 }
-

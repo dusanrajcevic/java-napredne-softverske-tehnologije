@@ -37,4 +37,3 @@ public class IgracTest {
         assertEquals(expected, igrac.toString());
     }
 }
-

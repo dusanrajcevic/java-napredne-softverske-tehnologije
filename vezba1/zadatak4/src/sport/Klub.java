@@ -35,7 +35,7 @@ public class Klub {
         return this;
     }
 
-    public void ukloniIgraca(int id) {
+    public void ukloniIgraca(int id) throws IllegalArgumentException {
         int i = igracIndex(id);
 
         if (i == -1) {
@@ -65,4 +65,3 @@ public class Klub {
                 .orElse(-1);
     }
 }
-

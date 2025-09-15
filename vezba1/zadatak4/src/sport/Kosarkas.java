@@ -19,4 +19,3 @@ public class Kosarkas extends Igrac {
         return super.toString() + " - " + visina + "cm";
     }
 }
-

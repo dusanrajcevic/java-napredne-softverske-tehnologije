@@ -29,4 +29,3 @@ public class Igrac {
         return String.format("%d. %s (%d)", id, imePrezime, godine);
     }
 }
-

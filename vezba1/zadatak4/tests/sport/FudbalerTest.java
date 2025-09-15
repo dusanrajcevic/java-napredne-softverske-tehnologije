@@ -19,4 +19,3 @@ public class FudbalerTest {
         assertEquals(expected, f.toString());
     }
 }
-
