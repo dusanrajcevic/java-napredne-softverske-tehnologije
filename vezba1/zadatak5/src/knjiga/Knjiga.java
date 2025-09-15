@@ -1,6 +1,6 @@
 package knjiga;
 
-public class Knjiga {
+public class Knjiga implements Comparable<Knjiga> {
     private static int ID = 1;
     private final int id;
     private final String naziv;
@@ -28,5 +28,10 @@ public class Knjiga {
 
     public int getGodinaIzdanja() {
         return godinaIzdanja;
+    }
+
+    @Override
+    public int compareTo(Knjiga o) {
+        return Integer.compare(this.godinaIzdanja, o.godinaIzdanja);
     }
 }

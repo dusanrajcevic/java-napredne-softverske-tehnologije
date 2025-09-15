@@ -3,6 +3,10 @@ package knjiga;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -26,5 +30,16 @@ public class KnjigaTest {
             assertEquals(godinaIzdanja, k.getGodinaIzdanja());
             assertTrue(k.getId() > 0);
         }
+    }
+
+    @Test
+    public void testSortiranjePoGodiniIzdanjaNeopadajuce() {
+        Knjiga knjiga2 = new Knjiga("Knjiga2", "Autor2", 2002);
+        Knjiga knjiga3 = new Knjiga("Knjiga3", "Autor3", 2000);
+        List<Knjiga> lista = new ArrayList<>(List.of(knjiga, knjiga2, knjiga3));
+        Collections.sort(lista);
+        assertEquals(knjiga3, lista.get(0));
+        assertEquals(knjiga2, lista.get(1));
+        assertEquals(knjiga, lista.get(2));
     }
 }
