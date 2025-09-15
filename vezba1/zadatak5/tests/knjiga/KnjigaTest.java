@@ -42,4 +42,10 @@ public class KnjigaTest {
         assertEquals(knjiga2, lista.get(1));
         assertEquals(knjiga, lista.get(2));
     }
+
+    @Test
+    public void testToStringFormat() {
+        String expectedString = knjiga.getId() + ". Knjiga1 - Autor1 (2025)";
+        assertEquals(expectedString, knjiga.toString());
+    }
 }

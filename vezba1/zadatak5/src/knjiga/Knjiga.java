@@ -34,4 +34,9 @@ public class Knjiga implements Comparable<Knjiga> {
     public int compareTo(Knjiga o) {
         return Integer.compare(this.godinaIzdanja, o.godinaIzdanja);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d. %s - %s (%d)", id, naziv, autor, godinaIzdanja);
+    }
 }
