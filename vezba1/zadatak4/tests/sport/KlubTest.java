@@ -43,5 +43,14 @@ public class KlubTest {
         assertEquals(i2, klub.getIgraci().get(0));
         assertEquals(i1, klub.getIgraci().get(1));
     }
+
+    @Test
+    public void testToStringFormat() {
+        Klub klub = new Klub("Crvena Zvezda", "fudbal");
+        Igrac igrac = new Igrac("Marko Markovic", 25);
+        klub.dodajIgraca(igrac);
+        String expected = "Klub: Crvena Zvezda (fudbal)\n--- Igraci:\n----- " + igrac + "\n";
+        assertEquals(expected, klub.toString());
+    }
 }
 

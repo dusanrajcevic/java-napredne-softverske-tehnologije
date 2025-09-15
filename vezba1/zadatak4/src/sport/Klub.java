@@ -49,6 +49,15 @@ public class Klub {
         igraci.sort(Comparator.comparingInt(Igrac::getGodine));
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Klub: %s (%s)\n", naziv, sport));
+        sb.append("--- Igraci:\n");
+        igraci.forEach(i -> sb.append("----- ").append(i).append("\n"));
+        return sb.toString();
+    }
+
     private int igracIndex(int id) {
         return IntStream.range(0, igraci.size())
                 .filter(i -> igraci.get(i).getId() == id)
