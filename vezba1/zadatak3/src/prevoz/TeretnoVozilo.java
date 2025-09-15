@@ -4,6 +4,7 @@ import tovar.Prtljag;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class TeretnoVozilo extends Vozilo {
     private final List<Prtljag> prtljazi;
@@ -23,11 +24,7 @@ public class TeretnoVozilo extends Vozilo {
     }
 
     public double ukupnaTezinaPrtljaga() {
-        double ukupnaTezina = 0;
-        for (Prtljag p: prtljazi) {
-            ukupnaTezina += p.getTezina();
-        }
-        return ukupnaTezina;
+        return prtljazi.stream().mapToDouble(Prtljag::getTezina).sum();
     }
 
     public Prtljag istovariPrtljag(int id) throws IllegalArgumentException {
@@ -42,21 +39,16 @@ public class TeretnoVozilo extends Vozilo {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(super.toString())
-                .append("\n  Prtljag:\n");
-        for (Prtljag p : prtljazi) {
-            sb.append("    ").append(p).append("\n");
-        }
+        StringBuilder sb = new StringBuilder(super.toString()).append("\n  Prtljag:\n");
+        prtljazi.forEach(p -> sb.append("    ").append(p).append("\n"));
         sb.append("  Ukupno: ").append(String.format("%.2f", ukupnaTezinaPrtljaga()));
         return sb.toString();
     }
 
     private int getIndeksPrtljaga(int id) {
-        for (int i = 0; i < prtljazi.size(); i++) {
-            if (prtljazi.get(i).getId() == id) {
-                return i;
-            }
-        }
-        return -1;
+        return IntStream.range(0, prtljazi.size())
+                .filter(i -> prtljazi.get(i).getId() == id)
+                .findFirst()
+                .orElse(-1);
     }
 }
