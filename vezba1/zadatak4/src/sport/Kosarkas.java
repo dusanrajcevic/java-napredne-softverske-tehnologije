@@ -13,5 +13,10 @@ public class Kosarkas extends Igrac {
     public int getVisina() {
         return visina;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " - " + visina + "cm";
+    }
 }
 

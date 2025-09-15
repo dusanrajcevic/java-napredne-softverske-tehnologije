@@ -11,5 +11,12 @@ public class KosarkasTest {
         assertEquals(27, k.getGodine());
         assertEquals(198, k.getVisina());
     }
+
+    @Test
+    public void testToStringFormat() {
+        Kosarkas k = new Kosarkas("Jovan Jovanovic", 27, 198);
+        String expected = k.getId() + ". Jovan Jovanovic (27) - 198cm";
+        assertEquals(expected, k.toString());
+    }
 }
 
