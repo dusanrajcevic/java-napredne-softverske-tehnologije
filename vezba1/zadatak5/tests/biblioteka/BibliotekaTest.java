@@ -161,4 +161,23 @@ public class BibliotekaTest {
         assertEquals("    " + knjiga1, lines[1]);
         assertEquals("    " + knjiga2, lines[2]);
     }
+
+    @Test
+    public void testToStringFormat() {
+        Biblioteka biblioteka = new Biblioteka("Narodna biblioteka");
+        Knjiga knjiga1 = new Knjiga("Naslov knjige", "Autor knjige", 2020);
+        Knjiga knjiga2 = new Knjiga("Naslov knjige 2", "Autor knjige 2", 2022);
+        biblioteka.dodajKnjigu(knjiga1).dodajKnjigu(knjiga2);
+        Clan clan1 = new Clan("Pera Peric", "01234567");
+        Clan clan2 = new Clan("Pera Peric 2", "012345678");
+        biblioteka.upisiClana(clan1).upisiClana(clan2);
+        String expected = "Biblioteka: Narodna biblioteka\n" +
+                          "--- Knjige:\n" +
+                          "    " + knjiga1 + "\n" +
+                          "    " + knjiga2 + "\n" +
+                          "--- Clanovi:\n" +
+                          "    " + clan1 + "\n" +
+                          "    " + clan2 + "\n";
+        assertEquals(expected, biblioteka.toString());
+    }
 }

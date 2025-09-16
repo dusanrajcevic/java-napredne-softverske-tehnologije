@@ -71,4 +71,14 @@ public class Biblioteka {
                 .findFirst()
                 .orElse(-1);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Biblioteka: %s\n--- Knjige:\n", naziv));
+        knjige.forEach(k -> sb.append("    ").append(k).append("\n"));
+        sb.append("--- Clanovi:\n");
+        clanovi.forEach(c -> sb.append("    ").append(c).append("\n"));
+        return sb.toString();
+    }
 }
