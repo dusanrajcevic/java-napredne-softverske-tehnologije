@@ -100,9 +100,10 @@ public class BibliotekaTest {
         Clan clan1 = new Clan("Pera Peric", "01234567");
         Clan clan2 = new Clan("Pera Peric 2", "012345678");
         biblioteka.upisiClana(clan1).upisiClana(clan2);
-        biblioteka.izbrisiClana(clan1.getBrojClanskeKarte());
+        Clan clan = biblioteka.izbrisiClana(clan1.getBrojClanskeKarte());
         assertEquals(0, biblioteka.clanZaClanskuKartu(clan2.getBrojClanskeKarte()));
         assertEquals(-1, biblioteka.clanZaClanskuKartu(clan1.getBrojClanskeKarte()));
+        assertEquals(clan1, clan);
     }
 
     @Test
