@@ -50,9 +50,10 @@ public class BibliotekaTest {
         Knjiga knjiga1 = new Knjiga("Naslov knjige", "Autor knjige", 2020);
         Knjiga knjiga2 = new Knjiga("Naslov knjige 2", "Autor knjige 2", 2022);
         biblioteka.dodajKnjigu(knjiga1).dodajKnjigu(knjiga2);
-        biblioteka.ukloniKnjigu(knjiga1.getId());
+        Knjiga uklonjena = biblioteka.ukloniKnjigu(knjiga1.getId());
         assertEquals(0, biblioteka.knjigaIndex(knjiga2.getId()));
         assertEquals(-1, biblioteka.knjigaIndex(knjiga1.getId()));
+        assertEquals(knjiga1, uklonjena);
     }
 
     @Test
