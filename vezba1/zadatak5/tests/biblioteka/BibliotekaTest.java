@@ -3,6 +3,8 @@ package biblioteka;
 import knjiga.Knjiga;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BibliotekaTest {
@@ -111,4 +113,52 @@ public class BibliotekaTest {
         assertThrows(IllegalArgumentException.class, () -> biblioteka.izbrisiClana("99999999"));
     }
 
+    @Test
+    public void testKnjigePoGodiniIzdanjaNeopadajuce() {
+        Biblioteka biblioteka = new Biblioteka("Narodna biblioteka");
+        Knjiga knjiga1 = new Knjiga("Naslov knjige", "Autor knjige", 2020);
+        Knjiga knjiga2 = new Knjiga("Naslov knjige 2", "Autor knjige 2", 2022);
+        Knjiga knjiga3 = new Knjiga("Naslov knjige 3", "Autor knjige 3", 2018);
+        biblioteka.dodajKnjigu(knjiga1).dodajKnjigu(knjiga2).dodajKnjigu(knjiga3);
+        List<Knjiga> sortiraneKnjige = biblioteka.knjigePoGodiniIzdanja();
+        assertEquals(3, sortiraneKnjige.size());
+        assertEquals(knjiga3.getId(), sortiraneKnjige.get(0).getId());
+        assertEquals(knjiga1.getId(), sortiraneKnjige.get(1).getId());
+        assertEquals(knjiga2.getId(), sortiraneKnjige.get(2).getId());
+    }
+
+    @Test
+    public void testKnjigePoGodiniIzdanjaNeMenjaOriginalnuListu() {
+        Biblioteka biblioteka = new Biblioteka("Narodna biblioteka");
+        Knjiga knjiga1 = new Knjiga("Naslov knjige", "Autor knjige", 2020);
+        Knjiga knjiga2 = new Knjiga("Naslov knjige 2", "Autor knjige 2", 2022);
+        Knjiga knjiga3 = new Knjiga("Naslov knjige 3", "Autor knjige 3", 2018);
+        biblioteka.dodajKnjigu(knjiga1).dodajKnjigu(knjiga2).dodajKnjigu(knjiga3);
+        biblioteka.knjigePoGodiniIzdanja();
+        assertEquals(0, biblioteka.knjigaIndex(knjiga1.getId()));
+        assertEquals(1, biblioteka.knjigaIndex(knjiga2.getId()));
+        assertEquals(2, biblioteka.knjigaIndex(knjiga3.getId()));
+    }
+
+    @Test
+    public void testKnjigePoGodiniIzdanjaPraznaBiblioteka() {
+        Biblioteka biblioteka = new Biblioteka("Narodna biblioteka");
+        List<Knjiga> sortiraneKnjige = biblioteka.knjigePoGodiniIzdanja();
+        assertTrue(sortiraneKnjige.isEmpty());
+    }
+
+    @Test
+    public void testKnjigePoGodiniIzdanjaStringFormat() {
+        Biblioteka biblioteka = new Biblioteka("Narodna biblioteka");
+        Knjiga knjiga1 = new Knjiga("Naslov knjige", "Autor knjige", 2020);
+        Knjiga knjiga2 = new Knjiga("Naslov knjige 2", "Autor knjige 2", 2022);
+        Knjiga knjiga3 = new Knjiga("Naslov knjige 3", "Autor knjige 3", 2018);
+        biblioteka.dodajKnjigu(knjiga1).dodajKnjigu(knjiga2).dodajKnjigu(knjiga3);
+        String sortiraneKnjige = biblioteka.knjigePoGodiniIzdanjaString();
+        String[] lines = sortiraneKnjige.split("\n");
+        assertEquals(3, lines.length);
+        assertEquals("    " + knjiga3, lines[0]);
+        assertEquals("    " + knjiga1, lines[1]);
+        assertEquals("    " + knjiga2, lines[2]);
+    }
 }

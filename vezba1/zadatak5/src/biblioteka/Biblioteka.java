@@ -4,6 +4,7 @@ import knjiga.Knjiga;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Biblioteka {
@@ -52,6 +53,16 @@ public class Biblioteka {
         }
 
         return clanovi.remove(i);
+    }
+
+    public List<Knjiga> knjigePoGodiniIzdanja() {
+        return knjige.stream().map(Knjiga::new).sorted().collect(Collectors.toList());
+    }
+
+    public String knjigePoGodiniIzdanjaString() {
+        StringBuilder sb = new StringBuilder();
+        knjigePoGodiniIzdanja().forEach(k -> sb.append("    ").append(k).append("\n"));
+        return sb.toString();
     }
 
     public int clanZaClanskuKartu(String clanskaKarta) {
