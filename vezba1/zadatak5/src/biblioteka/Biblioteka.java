@@ -43,4 +43,21 @@ public class Biblioteka {
         this.clanovi.add(clan);
         return this;
     }
+
+    public Clan izbrisiClana(String clanskaKarta) {
+        int i = clanZaClanskuKartu(clanskaKarta);
+
+        if (i == -1) {
+            throw new IllegalArgumentException("Nepostojeci clan");
+        }
+
+        return clanovi.remove(i);
+    }
+
+    public int clanZaClanskuKartu(String clanskaKarta) {
+        return IntStream.range(0, clanovi.size())
+                .filter(i -> clanovi.get(i).getBrojClanskeKarte().equals(clanskaKarta))
+                .findFirst()
+                .orElse(-1);
+    }
 }
