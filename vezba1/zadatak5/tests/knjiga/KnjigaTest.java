@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class KnjigaTest {
     private Knjiga knjiga;
@@ -30,6 +29,16 @@ public class KnjigaTest {
             assertEquals(godinaIzdanja, k.getGodinaIzdanja());
             assertTrue(k.getId() > 0);
         }
+    }
+
+    @Test
+    public void testKreiranjeKopijeKnjige() {
+        Knjiga kopija = new Knjiga(knjiga);
+        assertEquals(knjiga.getNaziv(), kopija.getNaziv());
+        assertEquals(knjiga.getAutor(), kopija.getAutor());
+        assertEquals(knjiga.getGodinaIzdanja(), kopija.getGodinaIzdanja());
+        assertEquals(knjiga.getId(), kopija.getId());
+        assertNotEquals(knjiga, kopija);
     }
 
     @Test

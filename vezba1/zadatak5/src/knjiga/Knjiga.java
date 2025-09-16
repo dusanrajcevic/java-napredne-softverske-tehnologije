@@ -14,6 +14,13 @@ public class Knjiga implements Comparable<Knjiga> {
         this.godinaIzdanja = godinaIzdanja;
     }
 
+    public Knjiga(Knjiga k) {
+        this.id = k.id;
+        this.naziv = k.naziv;
+        this.autor = k.autor;
+        this.godinaIzdanja = k.godinaIzdanja;
+    }
+
     public int getId() {
         return id;
     }
