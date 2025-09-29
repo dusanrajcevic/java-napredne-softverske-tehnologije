@@ -84,7 +84,7 @@ public class Festival {
         return String.format("Festival: %s (%d)\n%s", naziv, datumOdrzavanja.getYear(), prikaziNastupe());
     }
 
-    private class Nastup {
+    public class Nastup {
         private final String nazivIzvodjaca;
         private final int trajanje;
 
