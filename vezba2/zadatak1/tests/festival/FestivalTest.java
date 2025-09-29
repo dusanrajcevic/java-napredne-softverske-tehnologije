@@ -24,9 +24,11 @@ class FestivalTest {
     void testPrikaziNastupeFormatSaDodavanjemNastupa() {
         festival.dodajNastup("Parni Valjak", 90)
                 .dodajNastup("Dubioza Kolektiv", 75);
-        String expected = "--- Nastupi:\n" +
-                "    Parni Valjak (90 min)\n" +
-                "    Dubioza Kolektiv (75 min)\n";
+        String expected = """
+                --- Nastupi:
+                    Parni Valjak (90 min)
+                    Dubioza Kolektiv (75 min)
+                """;
         assertEquals(expected, festival.prikaziNastupe());
     }
 
@@ -37,10 +39,12 @@ class FestivalTest {
                 .dodajNastup("Riblja Corba", 80)
                 .sortirajNastupePoTrajanju();
 
-        String expected = "--- Nastupi:\n" +
-                "    Dubioza Kolektiv (75 min)\n" +
-                "    Riblja Corba (80 min)\n" +
-                "    Parni Valjak (90 min)\n";
+        String expected = """
+                --- Nastupi:
+                    Dubioza Kolektiv (75 min)
+                    Riblja Corba (80 min)
+                    Parni Valjak (90 min)
+                """;
         assertEquals(expected, festival.prikaziNastupe());
     }
 
@@ -55,10 +59,12 @@ class FestivalTest {
                 .dodajNastup("Dubioza Kolektiv", 75)
                 .dodajNastup("Riblja Corba", 80);
 
-        String expected = "--- Raspored (31.12.2025):\n" +
-                "    20:00 - Parni Valjak (90 min)\n" +
-                "    21:40 - Dubioza Kolektiv (75 min)\n" +
-                "    23:05 - Riblja Corba (80 min)\n";
+        String expected = """
+                --- Raspored (31.12.2025):
+                    20:00 - Parni Valjak (90 min)
+                    21:40 - Dubioza Kolektiv (75 min)
+                    23:05 - Riblja Corba (80 min)
+                """;
         assertEquals(expected, festival.prikaziRaspored(20, 0, 10));
     }
 
@@ -67,10 +73,12 @@ class FestivalTest {
         festival.dodajNastup("Parni Valjak", 90)
                 .dodajNastup("Dubioza Kolektiv", 75);
 
-        String expected = "Festival: Exit (2025)\n" +
-                "--- Nastupi:\n" +
-                "    Dubioza Kolektiv (75 min)\n" +
-                "    Parni Valjak (90 min)\n";
+        String expected = """
+                Festival: Exit (2025)
+                --- Nastupi:
+                    Dubioza Kolektiv (75 min)
+                    Parni Valjak (90 min)
+                """;
         assertEquals(expected, festival.toString());
     }
 }
