@@ -61,4 +61,16 @@ class FestivalTest {
                 "    23:05 - Riblja Corba (80 min)\n";
         assertEquals(expected, festival.prikaziRaspored(20, 0, 10));
     }
+
+    @Test
+    void testToStringFormat() {
+        festival.dodajNastup("Parni Valjak", 90)
+                .dodajNastup("Dubioza Kolektiv", 75);
+
+        String expected = "Festival: Exit (2025)\n" +
+                "--- Nastupi:\n" +
+                "    Dubioza Kolektiv (75 min)\n" +
+                "    Parni Valjak (90 min)\n";
+        assertEquals(expected, festival.toString());
+    }
 }

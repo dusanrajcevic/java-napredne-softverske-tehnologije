@@ -78,6 +78,12 @@ public class Festival {
         return sb.toString();
     }
 
+    @Override
+    public String toString() {
+        sortirajNastupePoTrajanju();
+        return String.format("Festival: %s (%d)\n%s", naziv, datumOdrzavanja.getYear(), prikaziNastupe());
+    }
+
     private class Nastup {
         private final String nazivIzvodjaca;
         private final int trajanje;
