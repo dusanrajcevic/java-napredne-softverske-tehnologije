@@ -43,4 +43,22 @@ class FestivalTest {
                 "    Parni Valjak (90 min)\n";
         assertEquals(expected, festival.prikaziNastupe());
     }
+
+    @Test
+    void testPrikaziRasporedVracaPrazanStringBezDodavanjaNastupa() {
+        assertEquals("", festival.prikaziRaspored(20, 0, 10));
+    }
+
+    @Test
+    void testPrikaziRasporedFormatSaDodavanjemNastupa() {
+        festival.dodajNastup("Parni Valjak", 90)
+                .dodajNastup("Dubioza Kolektiv", 75)
+                .dodajNastup("Riblja Corba", 80);
+
+        String expected = "--- Raspored (31.12.2025):\n" +
+                "    20:00 - Parni Valjak (90 min)\n" +
+                "    21:40 - Dubioza Kolektiv (75 min)\n" +
+                "    23:05 - Riblja Corba (80 min)\n";
+        assertEquals(expected, festival.prikaziRaspored(20, 0, 10));
+    }
 }
