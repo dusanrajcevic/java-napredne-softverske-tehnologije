@@ -1,7 +1,8 @@
 package festival;
 
 import java.time.LocalDate;
-import java.util.ArrayList;;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Festival {
@@ -32,6 +33,15 @@ public class Festival {
             sb.append("    ").append(n).append("\n");
         }
         return sb.toString();
+    }
+
+    public void sortirajNastupePoTrajanju() {
+        nastupi.sort(new Comparator<Nastup>() {
+            @Override
+            public int compare(Nastup n1, Nastup n2) {
+                return Integer.compare(n1.trajanje, n2.trajanje);
+            }
+        });
     }
 
     private class Nastup {

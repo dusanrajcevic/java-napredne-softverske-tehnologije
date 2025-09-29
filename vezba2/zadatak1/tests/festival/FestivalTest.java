@@ -29,4 +29,18 @@ class FestivalTest {
                 "    Dubioza Kolektiv (75 min)\n";
         assertEquals(expected, festival.prikaziNastupe());
     }
+
+    @Test
+    void testSortirajNastupePoTrajanjuNerastuce() {
+        festival.dodajNastup("Parni Valjak", 90)
+                .dodajNastup("Dubioza Kolektiv", 75)
+                .dodajNastup("Riblja Corba", 80)
+                .sortirajNastupePoTrajanju();
+
+        String expected = "--- Nastupi:\n" +
+                "    Dubioza Kolektiv (75 min)\n" +
+                "    Riblja Corba (80 min)\n" +
+                "    Parni Valjak (90 min)\n";
+        assertEquals(expected, festival.prikaziNastupe());
+    }
 }
