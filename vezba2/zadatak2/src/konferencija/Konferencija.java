@@ -28,6 +28,35 @@ public class Konferencija {
         return sb.toString();
     }
 
+    public String ispisiAgendu(int sat, int minut, int pauza) {
+        class Termin {
+            private final int sat;
+            private final int minut;
+            private final Predavanje predavanje;
+            Termin(int sat, int minut, Predavanje predavanje) {
+                this.sat = sat;
+                this.minut = minut;
+                this.predavanje = predavanje;
+            }
+            @Override
+            public String toString() {
+                return String.format("    %02d:%02d - %s", sat, minut, predavanje);
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("--- Agenda (%s):\n", datum()));
+
+        for (Predavanje p : predavanja) {
+            Termin t = new Termin(sat, minut, p);
+            sb.append(t).append("\n");
+            minut += p.trajanje + pauza;
+            sat += minut / 60;
+            minut = minut % 60;
+        }
+        return sb.toString();
+    }
+
     public static class Predavanje {
         private String naziv;
         private String predavac;
@@ -41,6 +70,10 @@ public class Konferencija {
         public String toString() {
             return String.format("%s - %s (%d min)", naziv, predavac, trajanje);
         }
+    }
+
+    private String datum() {
+        return datumOdrzavanja.getDayOfMonth() + "." + datumOdrzavanja.getMonthValue() + "." + datumOdrzavanja.getYear();
     }
 }
 
