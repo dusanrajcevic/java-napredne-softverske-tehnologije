@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Konferencija {
-    private String naziv;
-    private LocalDate datumOdrzavanja;
-    private List<Predavanje> predavanja;
+    private final String naziv;
+    private final LocalDate datumOdrzavanja;
+    private final List<Predavanje> predavanja;
 
     public Konferencija(String naziv, LocalDate datumOdrzavanja) {
         this.naziv = naziv;
@@ -71,9 +71,9 @@ public class Konferencija {
     }
 
     public static class Predavanje {
-        private String naziv;
-        private String predavac;
-        private int trajanje;
+        private final String naziv;
+        private final String predavac;
+        private final int trajanje;
         public Predavanje(String naziv, String predavac, int trajanje) {
             this.naziv = naziv;
             this.predavac = predavac;
