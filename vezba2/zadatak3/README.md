@@ -16,7 +16,7 @@
   ```
   *Пример*:
   ```
-  Hamlet - Nikola Nikolić (30 min)
+  Hamlet - Nikola Nikolic (30 min)
   ```
   * Приликом додавања у представу, креира се нови објекат унутрашње класе **Uloga**.
   * Постоји метода **ispisiProgram** која:
@@ -30,9 +30,9 @@
       *Пример*:
       ```
       --- Program (01.03.2025):
-          19:00 - Hamlet - Nikola Nikolić (30 min)
-          19:45 - Ofelija - Ivana Ilić (25 min)
-          20:25 - Polonije - Marko Marković (20 min)
+          19:00 - Hamlet - Nikola Nikolic (30 min)
+          19:45 - Ofelija - Ivana Ilic (25 min)
+          20:25 - Polonije - Marko Markovic (20 min)
       ```
     * За дефинисање сцене у програму, унутар методе **ispisiProgram** увести и користити локалну класу **Scena**
       која има:
@@ -44,7 +44,7 @@
           ```
           *Пример*:
           ```
-          19:00 - Hamlet - Nikola Nikolić (30 min)
+          19:00 - Hamlet - Nikola Nikolic (30 min)
           ```
 * Приликом приказа представе, сортирати **улоге** по **трајању сцене** у неопадајућем поретку
   користећи анонимну класу **Comparator**.
@@ -59,9 +59,9 @@
   ```
   Predstava: Hamlet (2025)
   --- Uloge:
-      Hamlet - Nikola Nikolić (30 min)
-      Ofelija - Ivana Ilić (25 min)
-      Polonije - Marko Marković (20 min)
+      Hamlet - Nikola Nikolic (30 min)
+      Ofelija - Ivana Ilic (25 min)
+      Polonije - Marko Markovic (20 min)
   ```
 
 У главном програму:

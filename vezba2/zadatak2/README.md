@@ -17,7 +17,7 @@
   ```
   *Пример*:
   ```
-  Veštačka inteligencija - Dr Marko Marković (45 min)
+  Veštačka inteligencija - Dr Marko Markovic (45 min)
   ```
   * Приликом додавања у конференцију, креира се нови објекат унутрашње класе **Предавање**.
 
@@ -33,9 +33,9 @@
   *Пример*:
   ```
   --- Agenda (15.05.2025):
-      10:00 - Veštačka inteligencija - Dr Marko Marković (45 min)
-      11:00 - Sajber bezbednost - Dr Petar Petrović (50 min)
-      12:00 - Kvantno računarstvo - Dr Ivana Ilić (60 min)
+      10:00 - Vestacka inteligencija - Dr Marko Markovic (45 min)
+      11:00 - Sajber bezbednost - Dr Petar Petrovic (50 min)
+      12:00 - Kvantno racunarstvo - Dr Ivana Ilic (60 min)
   ```
   * За дефинисање сатнице, унутар методе **ispisiAgendu** увести и користити локалну класу **Termin**
     која има:
@@ -47,7 +47,7 @@
      ```
      *Пример*:
      ```
-     10:00 - Veštačka inteligencija - Dr Marko Marković (45 min)
+     10:00 - Vestacka inteligencija - Dr Marko Markovic (45 min)
      ```
 * Приликом приказа конференције, сортирати **предавања** по **трајању** у неопадајућем поретку користећи анонимну класу **Comparator**.
 * Конференција се приказује у формату:
@@ -61,9 +61,9 @@
   ```
   Konferencija: IT Trends (2025)
   --- Predavanja:
-      Veštačka inteligencija - Dr Marko Marković (45 min)
-      Sajber bezbednost - Dr Petar Petrović (50 min)
-      Kvantno računarstvo - Dr Ivana Ilić (60 min)
+      Vestacka inteligencija - Dr Marko Markovic (45 min)
+      Sajber bezbednost - Dr Petar Petrovic (50 min)
+      Kvantno racunarstvo - Dr Ivana Ilic (60 min)
    ```
 
 У главном програму:
