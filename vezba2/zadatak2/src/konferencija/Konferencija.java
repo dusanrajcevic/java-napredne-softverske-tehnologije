@@ -2,6 +2,7 @@ package konferencija;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Konferencija {
@@ -55,6 +56,18 @@ public class Konferencija {
             minut = minut % 60;
         }
         return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        predavanja.sort(new Comparator<Predavanje>() {
+            @Override
+            public int compare(Predavanje p1, Predavanje p2) {
+                return Integer.compare(p1.trajanje, p2.trajanje);
+            }
+        });
+
+        return String.format("Konferencija: %s (%d)\n%s", naziv, datumOdrzavanja.getYear(), prikaziPredavanja());
     }
 
     public static class Predavanje {

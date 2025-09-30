@@ -51,4 +51,32 @@ class KonferencijaTest {
                 """;
         assertEquals(expected, konferencija.ispisiAgendu(10, 0, 0));
     }
+
+    @Test
+    void testToStringFormat() {
+        konferencija.dodajPredavanje("AI", "Marko Marković", 45);
+        konferencija.dodajPredavanje("Cyber", "Petar Petrović", 50);
+        String expected = """
+                Konferencija: IT Trends (2025)
+                --- Predavanja:
+                    AI - Marko Marković (45 min)
+                    Cyber - Petar Petrović (50 min)
+                """;
+        assertEquals(expected, konferencija.toString());
+    }
+
+    @Test
+    void testSortiranjePredavanjaPoTrajanju() {
+        konferencija.dodajPredavanje("AI", "Marko Marković", 45);
+        konferencija.dodajPredavanje("Cyber", "Petar Petrović", 50);
+        konferencija.dodajPredavanje("Quantum", "Ivana Ilić", 40);
+        String expected = """
+                Konferencija: IT Trends (2025)
+                --- Predavanja:
+                    Quantum - Ivana Ilić (40 min)
+                    AI - Marko Marković (45 min)
+                    Cyber - Petar Petrović (50 min)
+                """;
+        assertEquals(expected, konferencija.toString());
+    }
 }
