@@ -43,13 +43,13 @@
 * Могуће је додати новог клијента
 * Приказује се у формату:
   ```
-  Banka:
+  Banka: назив
   Klijent: ...
   ...
   ```
   *Пример*:
   ```
-    Banka:
+    Banka: Nacionalna Banka
     Klijent: Marko Markovic
     --- Racuni:
     1. 2500.0
