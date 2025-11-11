@@ -17,4 +17,14 @@ public class Magacin<T> {
     public void dodajKutiju(Kutija<T> kutija) {
         kutije.add(kutija);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Magacin:").append("\n");
+        for (Kutija<T> k : kutije) {
+            sb.append("    ").append(k).append("\n");
+        }
+        return sb.toString();
+    }
 }

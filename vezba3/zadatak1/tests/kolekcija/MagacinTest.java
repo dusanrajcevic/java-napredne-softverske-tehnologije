@@ -13,4 +13,15 @@ public class MagacinTest {
         assertEquals(1, magacin.getKutije().size());
         assertEquals("Test Sadrzaj", magacin.getKutije().getFirst().getSadrzaj());
     }
+
+    @Test
+    public void testToString() {
+        Magacin<Integer> magacin = new Magacin<>();
+        magacin.dodajKutiju(new Kutija<>(10));
+        magacin.dodajKutiju(new Kutija<>(20));
+        String expected = "Magacin:\n" +
+                          "    1. 10\n" +
+                          "    2. 20\n";
+        assertEquals(expected, magacin.toString());
+    }
 }
