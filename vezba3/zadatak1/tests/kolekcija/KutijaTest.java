@@ -1,5 +1,6 @@
 package kolekcija;
 
+import artikli.Telefon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,5 +29,21 @@ public class KutijaTest {
         Kutija<Integer> kutija = new Kutija<>(42);
         Integer expected = 42;
         assertEquals(expected, kutija.getSadrzaj());
+    }
+
+    @Test
+    public void testGetSadrzajTelefon()
+    {
+        Telefon telefon = new Telefon("Samsung Galaxy S21", 799.99);
+        Kutija<Telefon> kutija = new Kutija<>(telefon);
+        assertEquals(telefon, kutija.getSadrzaj());
+    }
+
+    @Test
+    public void testGetSadrzajKnjiga()
+    {
+        artikli.Knjiga knjiga = new artikli.Knjiga("The Great Gatsby", "F. Scott Fitzgerald");
+        Kutija<artikli.Knjiga> kutija = new Kutija<>(knjiga);
+        assertEquals(knjiga, kutija.getSadrzaj());
     }
 }
