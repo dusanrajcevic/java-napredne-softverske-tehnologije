@@ -6,16 +6,12 @@ public class FinansijskaBanka<T extends Number> extends Banka<T> {
     }
 
     public double ukupno() {
-        double sum = 0.0;
-        for (Klijent k : getKlijenti()) {
-            for (Racun<?> r : k.getRacuni()) {
-                Object val = r.getIznos();
-                if (val instanceof Number) {
-                    sum += ((Number) val).doubleValue();
-                }
-            }
-        }
-        return sum;
+        return getKlijenti().stream()
+                .flatMap(k -> k.getRacuni().stream())
+                .mapToDouble(r -> {
+                    Object v = r.getIznos();
+                    return (v instanceof Number) ? ((Number) v).doubleValue() : 0.0;
+                }).sum();
     }
 
     @Override
